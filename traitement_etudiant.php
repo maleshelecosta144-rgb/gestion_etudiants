@@ -2,6 +2,29 @@
 
 include("db.php");
 
+/* Création automatique de la table */
+$create_table = "
+CREATE TABLE IF NOT EXISTS etudiants (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100),
+    postnom VARCHAR(100),
+    prenom VARCHAR(100),
+    sexe VARCHAR(20),
+    date_naissance DATE,
+    lieu_naissance VARCHAR(150),
+    matricule VARCHAR(100),
+    faculte VARCHAR(150),
+    departement VARCHAR(150),
+    promotion VARCHAR(100),
+    adresse VARCHAR(255),
+    telephone VARCHAR(50),
+    email VARCHAR(150)
+)";
+
+if (!pg_query($conn, $create_table)) {
+    die("Erreur lors de la création de la table : " . pg_last_error($conn));
+}
+
 if (isset($_POST['enregistrer'])) {
 
     $nom = $_POST['nom'];
@@ -20,19 +43,9 @@ if (isset($_POST['enregistrer'])) {
 
     $sql = "INSERT INTO etudiants
     (
-        nom,
-        postnom,
-        prenom,
-        sexe,
-        date_naissance,
-        lieu_naissance,
-        matricule,
-        faculte,
-        departement,
-        promotion,
-        adresse,
-        telephone,
-        email
+        nom, postnom, prenom, sexe, date_naissance,
+        lieu_naissance, matricule, faculte, departement,
+        promotion, adresse, telephone, email
     )
     VALUES
     (
@@ -67,7 +80,6 @@ if (isset($_POST['enregistrer'])) {
         echo pg_last_error($conn);
 
     }
-
 }
 
 ?>
