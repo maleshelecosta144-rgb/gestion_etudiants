@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Inscription Étudiant</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:600px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+h3{
+    margin-top:25px;
+    color:#2c5aa0;
+    border-bottom:2px solid #2c5aa0;
+    padding-bottom:5px;
+}
+
+label{
+    font-weight:bold;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#2c5aa0;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1f3c88;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Inscription d'un étudiant</h2>
+
+<form action="traitement_etudiant.php" method="POST">
+
+<h3>Informations personnelles</h3>
+
+<input type="text" name="nom" placeholder="Nom" required>
+
+<br><br>
+
+<input type="text" name="postnom" placeholder="Postnom" required>
+
+<br><br>
+
+<input type="text" name="prenom" placeholder="Prénom" required>
+
+<br><br>
+
+<label>Sexe</label>
+
+<select name="sexe" required>
+
+<option value="">-- Sélectionner --</option>
+<option value="M">Masculin</option>
+<option value="F">Féminin</option>
+
+</select>
+
+<br><br>
+
+<label>Date de naissance</label>
+
+<input type="date" name="date_naissance">
+
+<br><br>
+
+<input type="text" name="lieu_naissance" placeholder="Lieu de naissance">
+
+<br><br>
+
+
+<h3>Informations académiques</h3>
+
+<input type="text" name="matricule" placeholder="Matricule" required>
+
+<br><br>
+
+<input type="text" name="faculte" placeholder="Faculté">
+
+<br><br>
+
+<input type="text" name="departement" placeholder="Département">
+
+<br><br>
+
+<input type="text" name="promotion" placeholder="Promotion">
+
+<br><br>
+
+
+<h3>Contact</h3>
+
+<input type="text" name="adresse" placeholder="Adresse">
+
+<br><br>
+
+<input type="text" name="telephone" placeholder="Téléphone">
+
+<br><br>
+
+<input type="email" name="email" placeholder="Email">
+
+<br><br>
+
+<button type="submit" name="enregistrer">
+
+Enregistrer étudiant
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
